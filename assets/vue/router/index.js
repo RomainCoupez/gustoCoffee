@@ -9,6 +9,8 @@ import Login from '../views/Login';
 import Rooms from '../views/Rooms';
 import Room from '../views/Room';
 import Bookings from '../views/Bookings';
+import Dashboard from '../views/Dashboard';
+import DashboardNewss from '../views/DashboardNewss';
 
 Vue.use(VueRouter);
 
@@ -22,6 +24,11 @@ let router = new VueRouter({
         { path: '/news', component: Newss, meta: { requiresAuth: false } },
         { path: '/rooms', component: Rooms, meta: { requiresAuth: true } },
         { path: '/rooms/:name', component: Room, meta: { requiresAuth: true } },
+        { path: '/dashboard', component: Dashboard, meta: {requiresAuth: true},children: [
+            { path: 'bookings', component: Dashboard},
+            { path: 'products', component: Dashboard},
+            { path: 'news', component: DashboardNewss},
+        ]},
         { path: '*', redirect: '/home' }
     ],
 });

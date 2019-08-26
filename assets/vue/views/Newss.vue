@@ -4,28 +4,13 @@
 			<h1 class="text-white">Actualités</h1>
     	</b-container>
 	    <b-container class="my-5">
-	 <!--        <div class="row col" v-if="canCreateNews">
-	            <form>
-	                <div class="form-row">
-	                    <div class="col-8">
-	                        <input v-model="message" type="text" class="form-control">
-	                    </div>
-	                    <div class="col-4">
-	                        <button @click="createNews()" :disabled="message.length === 0 || isLoading" type="button" class="btn btn-primary">Create</button>
-	                    </div>
-	                </div>
-	            </form>
-	        </div> -->
-
-	        <div v-if="isLoading" class="row col">
-	            <loader></loader>
-	        </div>
-	        <div v-else-if="hasError" class="row col">
-	            <error-message :error="error"></error-message>
-	        </div>
-	        <div v-else-if="!hasNewss" class="row col">
-	            No newss!
-	        </div>
+            <b-row v-if="isLoading || hasError || !hasNewss">
+                <b-col>
+    	            <loader v-if="isLoading"></loader>
+    	            <error-message v-else-if="hasError" :error="error"></error-message>
+                    <p v-else>Pas encore d'actualités !</p>
+                </b-col>
+            </b-row>
 			<news v-else v-for="news in newss" v-bind="news"
 	       v-bind:key="news.title"></news>
 	    </b-container>
@@ -67,15 +52,6 @@
             },
             newss () {
                 return this.$store.getters['news/newss'];
-            },
-            canCreateNews () {
-                return this.$store.getters['security/hasRole']('ROLE_FOO');
-            }
-        },
-        methods: {
-            createNews () {
-                this.$store.dispatch('news/createNews', this.$data.message)
-                    .then(() => this.$data.message = '')
             },
         },
     }

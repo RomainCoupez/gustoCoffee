@@ -56,9 +56,10 @@ export default {
         },
     },
     actions: {
-        createNews ({commit}, message) {
+        createNews ({commit}, formData) {
+            console.log(formData)
             commit('CREATING_NEWS');
-            return NewsApi.create(message)
+            return NewsApi.create(formData)
                 .then(res => commit('CREATING_NEWS_SUCCESS', res.data))
                 .catch(err => commit('CREATING_NEWS_ERROR', err));
         },

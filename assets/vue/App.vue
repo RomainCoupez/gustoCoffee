@@ -1,7 +1,7 @@
 <template>
     <b-container fluid class="p-0" style="height: 100vh;">
         <header>
-            <b-navbar toggleable="md" type="light" variant="light" class="shadow">
+            <b-navbar toggleable="md" type="white" variant="white" class="shadow">
                 <b-navbar-brand to="/home">
                     <img src="../img/logo.jpg" style="height: 35px">
                 </b-navbar-brand>
@@ -12,7 +12,10 @@
                     <b-nav-item to="/concept">Concept</b-nav-item>
                     <b-nav-item to="/news">Actualités</b-nav-item>
                     <b-nav-item to="/rooms">Réserver une salle</b-nav-item>
-                    <b-nav-item v-if="isAuthenticated" href="/api/security/logout">Déconnexion</b-nav-item>
+                    <span v-if="isAuthenticated" class="d-block d-md-inline-flex">
+                        <b-nav-item to="/dashboard">User</b-nav-item>
+                        <b-nav-item href="/api/security/logout">Déconnexion</b-nav-item>
+                    </span>
                     <b-nav-item v-else to="/login">
                         S'inscrire / Se connecter
                     </b-nav-item>
@@ -21,7 +24,7 @@
             </b-navbar>
         </header>
         <router-view></router-view>
-        <footer class="border-top">
+        <footer v-if="['dashboard'].indexOf($route.name) > -1" class="border-top">
             <b-container fluid class="py-5 text-center">
                 <b-row>
                     <b-col cols="12" sm="6" lg="3" class="my-4 d-flex flex-column align-items-center">

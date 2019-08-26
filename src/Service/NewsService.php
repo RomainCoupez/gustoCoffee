@@ -23,12 +23,14 @@ final class NewsService
     }
 
     /**
-     * @param string $message
+     * @param array $parameters
      * @return News
      */
-    public function createNews(string $message): News
+    public function createNews(array $parameters): News
     {
         $news = new News();
+        $news->setTitle($parameters['title']);
+        $news->setContent($parameters['content']);
         $this->em->persist($news);
         $this->em->flush();
         return $news;

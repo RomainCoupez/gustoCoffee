@@ -41,10 +41,9 @@ final class ApiNewsController extends AbstractController
      */
     public function create(Request $request): JsonResponse
     {
-        $message = $request->request->get('message');
-        $postEntity = $this->newsService->createNews($message);
+        $parameters = $request->request->all();
+        $postEntity = $this->newsService->createNews($parameters);
         $data = $this->serializer->serialize($postEntity, 'json');
-
         return new JsonResponse($data, 200, [], true);
     }
 

@@ -1,12 +1,11 @@
 import axios from 'axios';
 
 export default {
-    create (message) {
+    create (formData) {
+        console.log(formData)
         return axios.post(
             '/api/news/create',
-            {
-                message: message,
-            }
+            formData
         );
     },
     getAll () {

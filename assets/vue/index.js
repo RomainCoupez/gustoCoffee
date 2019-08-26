@@ -5,12 +5,12 @@ import store from './store'
 import moment from 'moment'
 import BootstrapVue from 'bootstrap-vue';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-import { faFacebookSquare,faTwitterSquare,faLinkedin,faDribbbleSquare,faGooglePlusSquare } from '@fortawesome/free-brands-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import '../css/app.css'
 
-library.add({faCoffee,faFacebookSquare,faTwitterSquare,faLinkedin,faDribbbleSquare,faGooglePlusSquare})
+library.add(fas,fab)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.filter('formatDate',function(value){
 	if(value)
