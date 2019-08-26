@@ -7,7 +7,7 @@ Installation:
 - doctrine:schema:update --force
 - yarn install 
 - yarn encore dev
-import sql in DBB !
+- (+ import the .sql file in phpmyadmin gusto DBB) !
 
 Run : 
 - yarn watch
