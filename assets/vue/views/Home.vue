@@ -1,6 +1,7 @@
 <template>
     <main>
-        <b-container fluid style="background-image:url('../../img/homepage.jpeg');height: calc(100vh - 59px);width: 100%;object-fit: cover;">
+        <b-container fluid style=";height: calc(100vh - 59px);width: 100%;"
+        class="bg-homepage">
             <b-row>
                 <b-col cols="12" sm="8" md="6" lg="4">
                     <b-card class="mx-2 my-4 shadow-sm"
@@ -95,6 +96,11 @@
 
 <script>
     export default {
-        name: 'home'
+        name: 'home',
+        data() {
+            return {
+                bgImage: "../../img/homepage.jpeg"
+            }
+        }
     }
 </script>

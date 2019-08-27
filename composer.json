@@ -8,6 +8,7 @@
         "doctrine/doctrine-migrations-bundle": "^2.0",
         "friendsofsymfony/rest-bundle": "^2.5",
         "sensio/framework-extra-bundle": "^5.1",
+        "spatie/server-side-rendering": "^0.2.5",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "4.3.*",
         "symfony/console": "4.3.*",

@@ -171,6 +171,9 @@
             "./config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "spatie/server-side-rendering": {
+        "version": "0.2.5"
+    },
     "swiftmailer/swiftmailer": {
         "version": "v6.2.1"
     },

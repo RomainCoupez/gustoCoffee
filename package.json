@@ -27,6 +27,10 @@
         "@fortawesome/vue-fontawesome": "^0.1.6",
         "bootstrap": "^4.3.1",
         "bootstrap-vue": "^2.0.0-rc.28",
-        "moment": "^2.24.0"
+        "luxon": "^1.17.2",
+        "moment": "^2.24.0",
+        "vue-datetime": "^1.0.0-beta.10",
+        "vue-server-renderer": "^2.6.10",
+        "weekstart": "^1.0.0"
     }
 }

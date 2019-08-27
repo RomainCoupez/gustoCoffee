@@ -1,12 +1,10 @@
 import axios from 'axios';
 
 export default {
-    create (message) {
+    create (formData) {
         return axios.post(
             '/api/booking/create',
-            {
-                message: message,
-            }
+            formData
         );
     },
     getAll () {

@@ -96,8 +96,8 @@
         },
         methods: {
             createNews () {
-                this.$store.dispatch('news/createNews', this.$data.form)
-                .then(() => this.$data.form = {
+                this.$store.dispatch('news/createNews', this.form)
+                .then(() => this.form = {
                     title: '',
                     content: ''
                 })

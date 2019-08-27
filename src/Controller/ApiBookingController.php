@@ -38,14 +38,12 @@ final class ApiBookingController extends AbstractController
      * @Rest\Post("/api/booking/create", name="createBooking")
      * @param Request $request
      * @return JsonResponse
-     * @IsGranted("ROLE_FOO")
      */
     public function create(Request $request): JsonResponse
     {
-        $message = $request->request->get('message');
-        $postEntity = $this->bookingService->createBooking($message);
+        $params = $request->request->all();
+        $postEntity = $this->bookingService->createBooking($params);
         $data = $this->serializer->serialize($postEntity, 'json');
-
         return new JsonResponse($data, 200, [], true);
     }
 

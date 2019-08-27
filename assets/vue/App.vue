@@ -1,7 +1,7 @@
 <template>
     <b-container fluid class="p-0" style="height: 100vh;">
         <header>
-            <b-navbar toggleable="md" type="white" variant="white" class="shadow">
+            <b-navbar toggleable="md" type="light" variant="white" class="shadow w-100 position-fixed">
                 <b-navbar-brand to="/home">
                     <img src="../img/logo.jpg" style="height: 35px">
                 </b-navbar-brand>
@@ -13,7 +13,10 @@
                     <b-nav-item to="/news">Actualités</b-nav-item>
                     <b-nav-item to="/rooms">Réserver une salle</b-nav-item>
                     <span v-if="isAuthenticated" class="d-block d-md-inline-flex">
-                        <b-nav-item to="/dashboard">User</b-nav-item>
+                        <b-nav-item to="/dashboard">
+                            <span v-if="isAdmin">Dashboard</span>
+                            <span v-else>Profile</span>
+                        </b-nav-item>
                         <b-nav-item href="/api/security/logout">Déconnexion</b-nav-item>
                     </span>
                     <b-nav-item v-else to="/login">
@@ -23,8 +26,10 @@
                 </b-collapse>
             </b-navbar>
         </header>
-        <router-view></router-view>
-        <footer v-if="['dashboard'].indexOf($route.name) > -1" class="border-top">
+        <div style="padding-top: 59.38px">
+            <router-view></router-view>
+        </div>
+        <footer class="border-top">
             <b-container fluid class="py-5 text-center">
                 <b-row>
                     <b-col cols="12" sm="6" lg="3" class="my-4 d-flex flex-column align-items-center">
@@ -108,6 +113,9 @@
             isAuthenticated () {
                 return this.$store.getters['security/isAuthenticated']
             },
+            isAdmin () {
+                return this.$store.getters['security/hasRole']('ROLE_ADMIN');
+            }
         },
     }
 </script>

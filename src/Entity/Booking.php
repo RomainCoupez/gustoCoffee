@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Booking
 {
@@ -36,6 +37,15 @@ class Booking
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
+
+    /**
+     * @ORM\PrePersist
+     * @return void
+     */
+    public function onPrePersist(): void
+    {
+        $this->createdAt = new \DateTime;
+    }
 
     public function getId(): ?int
     {
@@ -81,12 +91,5 @@ class Booking
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
     }
 }

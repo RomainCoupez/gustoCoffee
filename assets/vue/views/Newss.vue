@@ -1,6 +1,6 @@
 <template>
 	<main>
-    	<b-container fluid class="w-100 bg-warning d-flex align-items-center justify-content-center" style="background-image:url('../../img/homepage.jpeg');height: 50vh;max-height:400px;object-fit: cover;">
+    	<b-container fluid class="w-100 d-flex align-items-center bg-news justify-content-center">
 			<h1 class="text-white">Actualités</h1>
     	</b-container>
 	    <b-container class="my-5">

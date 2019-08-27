@@ -56,9 +56,9 @@ export default {
         },
     },
     actions: {
-        createBooking ({commit}, message) {
+        createBooking ({commit}, formData) {
             commit('CREATING_BOOKING');
-            return BookingApi.create(message)
+            return BookingApi.create(formData)
                 .then(res => commit('CREATING_BOOKING_SUCCESS', res.data))
                 .catch(err => commit('CREATING_BOOKING_ERROR', err));
         },

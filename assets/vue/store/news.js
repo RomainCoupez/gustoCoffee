@@ -57,7 +57,6 @@ export default {
     },
     actions: {
         createNews ({commit}, formData) {
-            console.log(formData)
             commit('CREATING_NEWS');
             return NewsApi.create(formData)
                 .then(res => commit('CREATING_NEWS_SUCCESS', res.data))

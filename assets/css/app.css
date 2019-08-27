@@ -66,3 +66,32 @@ header > nav {
     -webkit-transform: scaleY(1.0);
   }
 }
+
+.bg-homepage {
+  background-image: url('../img/homepage.jpeg');
+  background-size: cover;
+}
+
+.bg-who-are-we {
+  background-image: url('../img/presentation.jpeg');
+  background-size: cover;
+  text-shadow: 1px 1px 2px grey;
+  height: 60vh;
+  max-height:500px;
+}
+
+.bg-concept {
+  background-image: url('../img/about.jpg');
+  background-size: cover;
+  text-shadow: 1px 1px 2px grey;
+  height: 60vh;
+  max-height:500px;
+}
+
+.bg-news {
+  background-image: url('../img/espaces-bureaux.jpeg');
+  background-size: cover;
+  text-shadow: 1px 1px 2px grey;
+  height: 60vh;
+  max-height:500px;
+}

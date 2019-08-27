@@ -7,3 +7,5 @@ framework:
         cookie_samesite: lax
     php_errors:
         log: true
+    serializer:
+      circular_reference_handler: App\Serializer\CircularIdHandler
